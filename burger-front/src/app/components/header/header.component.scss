@@ -1,0 +1,56 @@
+.header {
+    padding: 1rem 0;
+    background: var(--light);
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link{
+    all: unset;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.name{
+    display: block;
+    margin: 0;
+    font-weight: bold;
+    @media (max-width: 720px) {
+        display: none;
+    }
+}
+
+.icon {
+    all: unset;
+    cursor: pointer;
+    height: 24px;
+    text-decoration: none;
+    &--black{
+        color: black;
+    }
+    &--red{
+        color: red;
+    }
+}

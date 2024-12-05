@@ -1,0 +1,100 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$burger-primary: mat.define-palette(mat.$indigo-palette);
+$burger-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$burger-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$burger-theme: mat.define-light-theme((color: (primary: $burger-primary,
+        accent: $burger-accent,
+        warn: $burger-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($burger-theme);
+
+/* You can add global styles to this file, and also import other style files */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: rgb(234, 234, 234);
+  overflow: hidden;
+}
+
+.main-content {
+  overflow: hidden;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+.message{
+
+  height: 2rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin: 0;
+
+  &--success{
+    
+    background-color: rgba(green, 0.2);
+    border-left: 10px solid darken(rgb(0, 92, 0), 0.7);
+
+  }
+  
+  &--error{
+    background-color: rgba(red, 0.2);
+    border-left: 10px solid darken(rgb(157, 1, 1), 0.8);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Apply border-box globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margin and padding for consistency */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Optional: Customize default font */
+}
+
+/* Optional: Ensure a consistent width for the content */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}

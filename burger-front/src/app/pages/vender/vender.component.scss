@@ -1,0 +1,95 @@
+.image {
+    max-width: 397px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.empty {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    opacity: 35%;
+
+    margin-top: 2rem;
+
+    &__image {
+        width: 100px;
+        height: 100px;
+        font-size: 100px;
+        margin: 0 auto;
+    }
+
+    &__text {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+.resume__name {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 14px;
+    text-overflow: ellipsis;
+
+}
+
+.product__info {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+
+    &--text {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    &--number {
+        margin: 0 12px;
+    }
+
+    &--actionStock {
+        all: unset;
+        font-weight: bold;
+        color: rgb(45, 45, 208);
+        margin: 0 5px;
+        width: 16px;
+        height: 20px;
+        cursor: pointer;
+        font-size: 18px;
+
+        &--icon {
+            font-size: 18px;
+            color: rgb(150, 0, 0);
+            width: 16px;
+            height: 20px;
+        }
+
+        &--blue {
+            font-size: 18px;
+            color: rgb(33, 33, 255);
+            width: 16px;
+            height: 20px;
+        }
+
+        &--flex {
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+            padding: 2px 4px;
+        }
+    }
+
+    &--flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 190px;
+        gap: 1rem;
+    }
+}

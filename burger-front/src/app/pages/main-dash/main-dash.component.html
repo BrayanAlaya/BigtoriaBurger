@@ -1,0 +1,62 @@
+<div class="dashboard">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Ventas de hoy</h3>
+            <p class="stat">S/{{ventasHoy.toFixed(2)}}</p>
+            <span class="trend positive">Total</span>
+        </div>
+        <div class="stat-card">
+            <h3>Pedidos hoy</h3>
+            <p class="stat">{{pedidosHoy.toFixed(0)}}</p>
+            <span class="trend positive">Total</span>
+        </div>
+        <div class="stat-card">
+            <h3>Más popular de Hoy</h3>
+            <p class="stat">{{popularName.product.name === undefined ? "" : popularName.product.name}}</p>
+            <span class="trend">{{popularName.suma.toFixed(0)}} ordenes</span>
+        </div>
+        <div class="stat-card">
+            <h3>Mayor Orden del Hoy</h3>
+            <p class="stat">S/{{ordenMayor}}</p>
+            <span class="trend positive">Total</span>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="recent-orders">
+            <h2>Ordenes Recientes</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders.slice(0,4)">
+                            <td>{{order.id}}</td>
+                            <td>{{order.amount}} x {{order.products.name}}</td>
+                            <td>S/{{order.amount * order.products.price}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="popular-items">
+            <h2>Más Populares</h2>
+            <div class="popular-grid">
+                <div class="popular-card" *ngFor="let item of ordenado.slice(0,3)">
+                    <img [src]="s3url + item.product.image" [alt]="item.product.name">
+                    <div class="popular-info">
+                        <h3>{{item.product.name}}</h3>
+                        <p>{{item.suma}} ordenes hoy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

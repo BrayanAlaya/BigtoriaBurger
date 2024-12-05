@@ -1,0 +1,32 @@
+<div class="sales-container">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio Total</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sale of allSales; track sale.id) {
+        <tr>
+          <td>{{sale.id}}</td>
+          <td>{{sale.products.name | capitalize}}</td>
+          <td>{{sale.amount}}</td>
+          <td>S/{{sale.amount * sale.products.price}}</td>
+          <td>{{sale.orders.date| date:'medium'}}</td>
+          <td>{{sale.orders.users != null ? (sale.orders.users.name | capitalize) : "N/A" }}</td>
+          <td>{{sale.orders.method | capitalize}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
+
+</div>

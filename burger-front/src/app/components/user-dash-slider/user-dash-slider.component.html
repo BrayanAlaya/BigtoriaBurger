@@ -1,0 +1,9 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed" (click)="toggleSidebar()" (mouseenter)="isCollapsed = false" (mouseleave)="isCollapsed = true">
+    <nav class="nav-menu">
+        <button *ngFor="let item of menuItems" [class.active]="activeItem === item.id" 
+            class="nav-item" routerLink="{{item.path}}">
+            <span class="icon">{{item.icon}}</span>
+            <span class="text">{{item.label}}</span>
+        </button>
+    </nav>
+</aside>

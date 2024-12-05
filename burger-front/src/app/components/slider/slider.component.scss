@@ -1,0 +1,65 @@
+.sidebar {
+    background-color: rgb(231, 231, 231);
+    color: var(--light);
+    height: 100vh;
+    width: 200px;
+    transition: width 0.2s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.sidebar.collapsed {
+    width: 55px;
+    
+}
+
+.logo-section {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--light);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.nav-menu {
+    padding: 1rem 0;
+}
+
+.nav-item {
+    all: unset;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--light);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.text {
+    margin-left: 1rem;
+    white-space: nowrap;
+}
+
+.text.hidden {
+    display: none;
+}

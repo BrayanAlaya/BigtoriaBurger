@@ -1,0 +1,33 @@
+<div class="payment-container">
+    <div class="total-amount">
+        <h2>Monto total</h2>
+        <span class="amount">S/{{ totalAmount.toFixed(2) }}</span>
+    </div>
+
+    <div class="payment-methods">
+        <h3>Seleccione método de pago</h3>
+        <div class="method-buttons">
+            <button [class.active]="selectedMethod === 'credit'" (click)="selectMethod('credit')" class="method-button">
+                <span class="icon">💳</span>
+                Targeta de Crédito
+            </button>
+            <button [class.active]="selectedMethod === 'debit'" (click)="selectMethod('debit')" class="method-button">
+                <span class="icon">💳</span>
+                Targeta de debito
+            </button>
+            <button [class.active]="selectedMethod === 'yape'" (click)="selectMethod('yape')" class="method-button">
+                <span class="icon">📱</span>
+                Yape
+            </button>
+        </div>
+    </div>
+
+
+    <div class="button-group">
+        <button type="button" class="cancel-btn" (click)="onNoClick()">Cancel</button>
+        <button type="submit" class="pay-btn" (click)="onYesClick()" [disabled]="selectedMethod == ''">
+            Pagar Ahora
+        </button>
+    </div>
+
+</div>

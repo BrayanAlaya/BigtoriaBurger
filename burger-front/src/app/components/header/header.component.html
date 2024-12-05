@@ -1,0 +1,23 @@
+<header class="header">
+    <div class="container">
+        <a class="logo" routerLink="/">BigtoriaBurguer</a>
+
+        <div class="icons" *ngIf="!user">
+            <a class="link" routerLink="/login">Ingresar</a>
+            <a class="link" routerLink="/register">Registrarse</a>
+        </div>
+
+        <div class="icons" *ngIf="user">
+            <p class="name">Bienvenido, {{user.name}}</p>
+            <a class="icon icon--black" routerLink="/{{dash}}"><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="person"></mat-icon>
+            </a>
+            <a class="icon icon--black" routerLink="/sell"><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="shopping_cart"></mat-icon>
+            </a>
+            <button class="icon icon--red" (click)="logout()"><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="logout"></mat-icon>
+            </button>
+        </div>
+    </div>
+</header>

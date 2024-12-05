@@ -1,0 +1,31 @@
+.login-container {
+    display: flex;
+    margin-top: 5rem;
+    align-items: center;
+    justify-content: center;
+    // background-color: #f8f9fa;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.error{
+    border-left: 10px solid rgb(89, 1, 1);
+    background-color: rgba(red, 0.5);
+    // color: white;
+    padding: 5px 0;
+    padding-left: 10px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem
+}

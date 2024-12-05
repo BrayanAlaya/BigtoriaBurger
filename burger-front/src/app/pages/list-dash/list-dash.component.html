@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="dashboard-header">
+      <h1>Lista de Hamburguesas</h1>
+    </div>
+
+    <div class="burger-grid">
+      <div class="burger-card" *ngFor="let burger of burgers">
+        <div>
+          <img 
+            [src]="s3Url + burger.image || 'https://via.placeholder.com/300x200?text=No+Image'" 
+            [alt]="burger.name "
+            class="burger-image"
+          >
+          <div class="burger-info">
+            <h2 class="burger-name">{{ burger.name | capitalize }}</h2>
+            <p class="burger-description">{{ burger.description }}</p>
+            <p class="burger-price">S/{{ burger.price }}</p>
+          </div>
+        </div>
+        <div class="burger-actions">
+          <a class="btn btn-primary" [routerLink]="['/dash/update']" [queryParams]="{id: burger.id }">
+            Editar
+          </a>
+          <button class="btn btn-danger" (click)="openDialog(burger.id)">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

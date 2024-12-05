@@ -1,0 +1,25 @@
+<main class="ajustes">
+
+    <mat-card class="ajustes__card">
+        <h1 class="title">Ajustes de Usuario</h1>
+        <form class="ajustes__grid" (ngSubmit)="onSubmit()" [formGroup]="ajustesForm">
+            <p class="message mb-3 mt-2" [ngClass]="[status == true ? 'message--success' : '', status == false ? 'message--error' : '']">{{message}}</p>
+            <div class="ajustes__field">
+                <mat-form-field class="ajustes__input">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="ajustes__input">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput placeholder="example@example.com" [readonly]="true" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="ajustes__input">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [readonly]="true" type="text" value="*************">
+                </mat-form-field>
+            </div>
+            <button class="ajustes__button ajustes__button--submit" mat-raised-button color="primary">Guardar
+                Cambios</button>
+        </form>
+    </mat-card>
+</main>

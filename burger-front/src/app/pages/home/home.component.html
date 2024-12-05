@@ -1,0 +1,24 @@
+<section class="hero">
+    <div class="container">
+        <h1 class="title">Saborea la dicha en cada bocado</h1>
+        <p class="slogan">Experimente hamburguesas gourmet elaboradas con pasión.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+      <h2>Hamburguesas populares</h2>
+      <div class="burger-grid">
+        <div class="burger-card" *ngFor="let burger of burgers">
+          <div>
+            <img [src]="s3Url + burger.image || 'https://via.placeholder.com/300x200?text=No+Image'" [alt]="burger.name">
+            <h3>{{burger.name  | capitalize}}</h3>
+          </div>
+          <div>
+            <p>{{burger.description}}</p>
+            <span class="price">S/{{burger.price}}</span>
+            <button class="button" (click)="onAddcart(burger.id)">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

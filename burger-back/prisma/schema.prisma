@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model order_details {
+  id         Int       @id @default(autoincrement())
+  amount     Int?
+  product_id Int?
+  order_id   Int?
+  products   products? @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "order_details_ibfk_1")
+  orders     orders?   @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "order_details_ibfk_2")
+
+  @@index([order_id], map: "order_id")
+  @@index([product_id], map: "product_id")
+}
+
+model orders {
+  id            Int             @id @default(autoincrement())
+  date          DateTime?       @db.DateTime(0)
+  method        String?         @db.VarChar(50)
+  user_id       Int?
+  address       String?         @db.VarChar(200)
+  order_details order_details[]
+  users         users?          @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+model products {
+  id            Int             @id @default(autoincrement())
+  name          String?         @db.VarChar(250)
+  description   String?         @db.VarChar(500)
+  price         Decimal?        @db.Decimal(5, 2)
+  discount      Decimal?        @db.Decimal(5, 2)
+  eliminado     Boolean?
+  image         String?         @db.VarChar(500)
+  cart          cart[]
+  order_details order_details[]
+}
+
+model users {
+  id       Int      @id @default(autoincrement())
+  name     String?  @db.VarChar(100)
+  email    String?  @db.VarChar(150)
+  password String?  @db.VarChar(255)
+  role     String?  @db.VarChar(20)
+  cart     cart[]
+  orders   orders[]
+}
+
+model cart {
+  id         Int       @id @default(autoincrement())
+  user_id    Int?
+  product_id Int?
+  amount     Int?
+  users      users?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cart_ibfk_1")
+  products   products? @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cart_ibfk_2")
+
+  @@index([product_id], map: "product_id")
+  @@index([user_id], map: "user_id")
+}

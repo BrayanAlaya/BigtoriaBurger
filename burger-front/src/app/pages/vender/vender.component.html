@@ -1,0 +1,109 @@
+<div class="container py-4">
+    <h1 class="mb-4">Carrito</h1>
+
+    <!-- Delivery Address -->
+
+    <div class="mb-4" *ngIf="!emptyCart">
+        <label for="address" class="form-label">Dirección de envío</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="deliveryAddress"
+            placeholder="Enter your delivery address">
+    </div>
+
+    <div class="row">
+        <div *ngIf="emptyCart" class="col-md-8 empty">
+            <mat-icon class="empty__image" aria-hidden="false" aria-label="Example home icon"
+                fontIcon="shopping_cart"></mat-icon>
+            <h1 class="empty__text">No hay productos en el carrito</h1>
+        </div>
+        <!-- Products Table -->
+        <div class="col-md-8" *ngIf="!emptyCart">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cart of carts">
+                            <td>{{cart.products.name | capitalize}}</td>
+                            <td>S/{{cart.products.price}}</td>
+                            <td>
+                                <div class="product__info--actionStock--flex">
+                                    <button (click)="substract(cart.products.id)"
+                                        class="product__info--text product__info--actionStock">
+                                        <mat-icon class="product__info--actionStock--icon" aria-hidden="false"
+                                            *ngIf="cart.amount > 1" aria-label="Example home icon"
+                                            fontIcon="remove"></mat-icon>
+                                        <mat-icon class="product__info--actionStock--icon" aria-hidden="false"
+                                            *ngIf="cart.amount == 1" aria-label="Example home icon"
+                                            fontIcon="delete"></mat-icon>
+                                    </button>
+                                    <p class="product__info--text product__info--number">{{cart.amount}}</p>
+                                    <button (click)="add(cart.products.id)"
+                                        class="product__info--text product__info--actionStock"><mat-icon class="product__info--actionStock--icon product__info--actionStock--blue"
+                                            aria-hidden="false" aria-label="Example home icon"
+                                            fontIcon="add"></mat-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Resumen de la orden</h5>
+                </div>
+                <div class="card-body">
+                    <div ngClass="mb-3" *ngIf="carts.length === 0" class="text-muted">
+                        Your cart is empty
+                    </div>
+                    <table class="table" *ngIf="carts.length > 0">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cart of carts">
+                                <td class="resume__name">{{cart.products.name | capitalize}}</td>
+                                <td>{{cart.amount}}</td>
+                                <td>S/{{(cart.amount * cart.products.price).toFixed(2)}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger" (click)="removeItem(cart.id)">
+                                        ×
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="fw-bold">
+                                <td colspan="2">Total:</td>
+                                <td colspan="2">S/{{total.toFixed(2)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-primary w-100" 
+                        [disabled]="carts.length === 0 || !hasAddress" (click)="placeOrder()">
+                        Ordenar
+                    </button>
+
+                    <div *ngIf="carts.length > 0 && !hasAddress" class="text-danger mt-2 small">
+                        Please enter delivery address to continue
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

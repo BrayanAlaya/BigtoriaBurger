@@ -1,0 +1,90 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+.button{
+    all: unset;
+    width: 100%;
+    background-color: rgb(62, 62, 255);
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    transition: 0.5s;
+
+    &:hover{
+        background-color: darken( rgb(28, 28, 255) , 0.9);
+    }
+}
+p {
+    font-size: 1rem;
+    // margin-bottom: 2rem;
+    padding: 0 1rem;
+    color: #666;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.slogan {
+    color: white;
+}
+
+.title {
+    color: white;
+}
+
+.section {
+    padding: 3rem 0;
+    background-color: #dedede;
+}
+
+.burger-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+}
+
+.burger-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.price {
+    display: block;
+    padding: 1rem;
+    font-weight: bold;
+    color: var(--primary);
+}

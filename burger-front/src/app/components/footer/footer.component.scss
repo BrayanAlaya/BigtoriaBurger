@@ -1,0 +1,60 @@
+.footer {
+    background-color: rgb(229, 229, 229);
+    color: var(--light);
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.newsletter .form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: none;
+    flex: 1;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.links a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: var(--secondary);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: none;
+}
